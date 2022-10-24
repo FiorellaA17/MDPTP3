@@ -1,0 +1,6 @@
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\obj\Debug\MDPTP3.csprojResolveAssemblyReference.cache
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\bin\Debug\MDPTP3.exe.config
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\bin\Debug\MDPTP3.exe
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\bin\Debug\MDPTP3.pdb
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\obj\Debug\MDPTP3.exe
+C:\Users\Windows\Documents\SharpDevelop Projects\MDPTP3\MDPTP3\obj\Debug\MDPTP3.pdb
