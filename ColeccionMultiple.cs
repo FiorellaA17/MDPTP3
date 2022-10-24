@@ -31,8 +31,8 @@ public class ColeccionMultiple : Icoleccionable
 			Icomparable minP= P.minimo();
 			Icomparable minC= C.minimo();
 			
-			if(((Persona)minP).getDni() > ((Persona)minC).getDni()) //para que compare Dni, debo castear a persona y pedir el dni
-//			if(((Numero)minP).getValor() > ((Numero)minC).getValor())
+//			if(((Persona)minP).getDni() > ((Persona)minC).getDni()) //para que compare Dni, debo castear a persona y pedir el dni
+			if(minP.sosMenor(minC))
 				return minP;
 			else
 				return minC;
@@ -44,7 +44,6 @@ public class ColeccionMultiple : Icoleccionable
 			Icomparable maxC= C.maximo();
 			
 			if(((Persona)maxP).getDni() > ((Persona)maxC).getDni()) //modifico cambiando por getDni y casteando a persona
-//			if(((Numero)maxP).getValor() > ((Numero)maxC).getValor())
 				return maxP;
 			else
 				return maxC;

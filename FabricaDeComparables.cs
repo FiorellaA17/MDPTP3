@@ -5,34 +5,49 @@ using System.Collections.Generic;
 namespace MDPTP3
 {
 //	TP3 - 4) Implemente la interface FabricaDeComparables.
-	public class FabricaDeComparables
+	public abstract class FabricaDeComparables
 	{
-		public FabricaDeComparables()
-		{
-		}
+		public const int NUMERO = 1;
+		public const int ALUMNO= 2;
 		
-		public Icomparable crearAleatorio()
+		
+		public static Icomparable crearPorTeclado(int seleccion)
 		{
-			Icomparable alumno;
-			Icomparable persona;
-			Icomparable numero;
+			FabricaDeComparables fabrica= null;
 			
-			Icomparable [] listaIcomparables= new Icomparable[]{alumno,persona,numero};
-			
-			Random random = new Random();
-			int numAleatorio=random.Next(listaIcomparables.Length);
-			
-			if(listaIcomparables[numAleatorio] == alumno)
+			switch(seleccion)
 			{
-				alumno=new Alumno();
+				case NUMERO: 
+					fabrica = new FabricaDeNumeros();
+			        break;
+				case ALUMNO:
+			        fabrica = new FabricaDeAlumnos();
+			        break;
 			}
-		
-
-		}
-		
-		public void crearPorTeclado()
-		{
 			
+			return fabrica.crearPorTeclado();
 		}
+		
+		public abstract Icomparable crearPorTeclado();
+		
+		public static Icomparable crearAleatorio(int opcion)
+		{
+			FabricaDeComparables fabrica= null;
+			
+			if(opcion==1)
+			{
+				fabrica=new FabricaDeNumeros();
+			}
+			
+			if(opcion==2)
+			{
+				fabrica=new FabricaDeAlumnos();
+			}
+						
+			return fabrica.crearAleatorio();
+		}
+		
+		public abstract Icomparable crearAleatorio();
+		
 	}
 }

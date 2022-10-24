@@ -46,10 +46,8 @@ namespace MDPTP3
 		
 		public Icomparable minimo()
 		{
-			//return (Icomparable)datos.Min();
-//			Icomparable min=new Numero(100); 
-//			Icomparable min=new Persona("min",60000000); //modifico el minimo de numero por una persona con dni, para poder comparar
-			Icomparable min=new Alumno("minimooooooooo",60000000,1000,100);
+//			Icomparable min=new Alumno("minimooooooooo",60000000,1000,100);
+			Icomparable min=datos[0];
 			
 			foreach(Icomparable elem in this.datos)
 			{
@@ -64,10 +62,8 @@ namespace MDPTP3
 		
 		public Icomparable maximo()
 		{
-			//return (Icomparable)datos.Max();
-//			Icomparable max=new Numero(0);
-//			Icomparable max=new Persona("max",0);
-			Icomparable max=new Alumno("m",0,0,0);
+//			Icomparable max=new Alumno("m",0,0,0);
+			Icomparable max=datos[0];
 			
 			foreach(Icomparable elem in this.datos)
 			{

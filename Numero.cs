@@ -3,16 +3,17 @@ using System;
 
 namespace MDPTP3
 {
-	
-	//TP2 -Patrones Strategy e Iterator
 	public class Numero : Icomparable
 	{
+		//al informar no me comparaba correctamente,me decia que no podia comparar alumno con numero. Entonces creo una estrategia de comparacion para numero
+		Istrategy comparoNumero; 
 		int valor;
 		
 		
 		public Numero(int v)
 		{
 			this.valor=v;
+			this.comparoNumero=new StrategyNumero();
 		}
 		
 		public int getValor()
@@ -20,51 +21,19 @@ namespace MDPTP3
 			return this.valor;
 		}
 		
-		/*Implemento los metodos de la interface Icomparable*/
-		
-		//Devuelve verdadero si el objeto que recibe el mensaje es el mismo que el “comparable” recibido por parámetro, 
-		//devuelve falso en caso contrario
-		
 		public bool sosIgual(Icomparable c)
 		{
-			if(this.getValor() == ((Numero)c).getValor())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return comparoNumero.sosIgual(this, c);
 		}
-		
-		//Devuelve verdadero si el objeto que recibe el mensaje es más chico que el “comparable” recibido por parámetro,
-		//devuelve falso en caso contrario
 		
 		public bool sosMenor(Icomparable c)
 		{
-			if(this.getValor() < ((Numero)c).getValor())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return comparoNumero.sosMenor(this,c);
 		}
-		
-		//Devuelve verdadero si el objeto que recibe el mensaje es más grande que el “comparable” recibido por parámetro,
-		//devuelve falso en caso contrario
-		
+
 		public bool sosMayor(Icomparable c)
 		{
-			if(this.getValor() > ((Numero)c).getValor())
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return comparoNumero.sosMayor(this, c);
 		}
 		
 		//sobreescribo para tener el valor, le digo como imprimir el objeto
