@@ -57,9 +57,13 @@
     <Compile Include="FabricaDeAlumnos.cs" />
     <Compile Include="FabricaDeComparables.cs" />
     <Compile Include="FabricaDeNumeros.cs" />
+    <Compile Include="FabricaDeVendedores.cs" />
     <Compile Include="GeneradorDeDatosAleatorios.cs" />
+    <Compile Include="Gerente.cs" />
     <Compile Include="Icoleccionable.cs" />
     <Compile Include="Icomparable.cs" />
+    <Compile Include="IObservado.cs" />
+    <Compile Include="IObservador.cs" />
     <Compile Include="Istrategy.cs" />
     <Compile Include="Iterable.cs" />
     <Compile Include="IteradorDeColeccion.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="Numero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Pila.cs" />
+    <Compile Include="PorBonus.cs" />
     <Compile Include="PorDni.cs" />
     <Compile Include="PorLegajo.cs" />
     <Compile Include="PorNombre.cs" />
@@ -75,6 +80,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StrategyNumero.cs" />
+    <Compile Include="Vendedor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

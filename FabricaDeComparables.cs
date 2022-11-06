@@ -9,6 +9,7 @@ namespace MDPTP3
 	{
 		public const int NUMERO = 1;
 		public const int ALUMNO= 2;
+		public const int VENDEDOR=3;
 		
 		
 		public static Icomparable crearPorTeclado(int seleccion)
@@ -22,6 +23,9 @@ namespace MDPTP3
 			        break;
 				case ALUMNO:
 			        fabrica = new FabricaDeAlumnos();
+			        break;
+			 	case VENDEDOR:
+			        fabrica = new FabricaDeVendedores();
 			        break;
 			}
 			
@@ -42,6 +46,11 @@ namespace MDPTP3
 			if(opcion==2)
 			{
 				fabrica=new FabricaDeAlumnos();
+			}
+			
+			if(opcion==3)
+			{
+				fabrica=new FabricaDeVendedores();
 			}
 						
 			return fabrica.crearAleatorio();

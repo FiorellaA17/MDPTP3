@@ -16,19 +16,19 @@ namespace MDPTP3
 //TP3 -6) Adapte, modifique y compruebe el correcto funcionamiento de los métodos main de los
 //	ejercicios 9 y 17 de la práctica 1. Unifique ambos métodos en un único main.
 
-			Pila pila = new Pila();
-			Cola cola = new Cola();
-		
-			llenar(pila,1);
-			llenar(cola,2);
-			
-			Console.WriteLine("*****Pila*****");
-			informar(pila,1);
-			Console.WriteLine("");
-			
-			Console.WriteLine("*****Cola*****");
-			informar(cola,2);
-			Console.WriteLine("");
+//			Pila pila = new Pila();
+//			Cola cola = new Cola();
+//		
+//			llenar(pila,1);
+//			llenar(cola,2);
+//			
+//			Console.WriteLine("*****Pila*****");
+//			informar(pila,1);
+//			Console.WriteLine("");
+//			
+//			Console.WriteLine("*****Cola*****");
+//			informar(cola,2);
+//			Console.WriteLine("");
 
 			
 //          TP3- 1)  Recordamos: ¿Cuál es la única diferencia entre los métodos llenar, llenarPersonas y
@@ -41,6 +41,23 @@ namespace MDPTP3
 //			En el metodo informar (ejercicio 6) tuve que ir modificando el objeto de comparacion, cambie de numero, persona o alumno segun lo que se iba a ejecutar.
 //			No servirian, Deberia crear un nuevo metodo llenarVendedor y cambiar en informar por el objeto vendedor.
 
+
+//			tp3- 7)¿Qué  debería  hacer  si  se  quiere  tener  en  el método  main la  opción  de almacenar los comparables en una pila,
+//			en una cola, en una colección múltiple, en un conjunto o en un diccionario?
+
+//			Pediría que se ingrese una opcion y luego con esa opcion (segun lo que se haya ingresado) crearia la coleccion que se desee. Una coleccion por cada opcion.
+
+
+//			TP3- 14) Implemente la siguiente función main.
+			
+			Pila pila = new Pila();
+			llenar(pila, 3);
+			Gerente gerente=new Gerente();
+			registrarObservador(pila,gerente);
+			jornadaDeVentas(pila);
+			gerente.cerrar();
+			
+			
             
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
@@ -49,7 +66,7 @@ namespace MDPTP3
 //		TP3 -6)
 		public static void llenar(Icoleccionable c, int opcion)
 		{	
-			for (int x = 1; x <= 30; x++) 
+			for (int x = 1; x <= 3; x++) 
 			{
 				c.agregar(FabricaDeComparables.crearAleatorio(opcion));
 			}
@@ -63,8 +80,8 @@ namespace MDPTP3
 			Console.WriteLine("Valor minimo: {0}",c.minimo());
 			Console.WriteLine("Valor maximo: {0}",c.maximo());
 			
-			
-			Console.WriteLine("Ingrese un numero para comparar en la coleccion: ");
+			Console.WriteLine("");
+			Console.WriteLine("Ingrese datos para comparar en la coleccion: ");
 			Icomparable elemento=FabricaDeComparables.crearPorTeclado(opcion);
 	
 			if(c.contiene(elemento))
@@ -109,5 +126,38 @@ namespace MDPTP3
             }
             
         }
+		
+		//a cada vendedor se le agrega el observador
+		public static void registrarObservador(Icoleccionable c,IObservador o)
+        {
+            Iterator iterador = c.crearIterador();
+            
+            while (!iterador.fin())
+            {
+                Vendedor vendedorActual = (Vendedor)iterador.actual();
+                vendedorActual.agregarObservador(o);
+                iterador.siguiente();
+            }
+
+        }
+		
+//		TP3 -13) Implemente la función jornadaDeVentas.
+		
+		public static void jornadaDeVentas(Icoleccionable c)
+		{
+			Iterator iterador=c.crearIterador();
+	
+			while(!iterador.fin())
+			{
+				Vendedor vendedorActual = (Vendedor)iterador.actual();
+				for(int i=0; i < 20; i++)
+				{
+					int monto=new Random().Next(1,7000);
+					vendedorActual.venta(monto);
+				}
+				
+				iterador.siguiente();
+			}
+		}
 	}
 }

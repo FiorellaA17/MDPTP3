@@ -1,17 +1,12 @@
-﻿/*
- * Creado por SharpDevelop.
- * Usuario: Windows
- * Fecha: 20/10/2022
- * Hora: 23:46
- * 
- * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
- */
+﻿
 using System;
 
 namespace MDPTP3
 {
-//	TP3 -5)
-	public class FabricaDeAlumnos : FabricaDeComparables
+//	TP3- 9)Implemente  una  fábrica  concreta  para  la  clase  Vendedor 
+//	y  compruebe  el  correcto funcionamiento del método main del ejercicio 6. Compare a los vendedores por el campo bonus.
+	
+	public class FabricaDeVendedores : FabricaDeComparables
 	{
 		override public Icomparable crearPorTeclado()
 		{
@@ -19,12 +14,10 @@ namespace MDPTP3
             string nombre = Console.ReadLine();
             Console.Write("ingrese dni: ");
             int dni = int.Parse(Console.ReadLine());
-            Console.Write("ingrese legajo: ");
-            int legajo = int.Parse(Console.ReadLine());
-            Console.Write("ingrese promedio: ");
-            int promedio = int.Parse(Console.ReadLine());
+            Console.Write("ingrese Sueldo basico: ");
+            int sueldo = int.Parse(Console.ReadLine());
 
-            return new Alumno( nombre,dni,legajo,promedio);
+            return new Vendedor(nombre,dni,sueldo);
 		}
 		
 	 	override public Icomparable crearAleatorio( )
@@ -34,7 +27,7 @@ namespace MDPTP3
 
             string auxNombre = listaNombres[random.Next(0, listaNombres.Length)];
            
-            return new Alumno(auxNombre,random.Next(50000000), random.Next(listaNombres.Length),random.Next(10));
+            return new Vendedor(auxNombre,random.Next(50000000), random.Next(500000));
         }
 	}
 }
